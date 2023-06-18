@@ -15,7 +15,7 @@ Output: 2, nums = [2,2,_,_]
 */
 
 const removeElement = (nums, val) => {
-  let k = 0; // Represents the number of elements not equal to val
+  let k = 0; 
 
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] !== val) {
@@ -27,7 +27,7 @@ const removeElement = (nums, val) => {
   return k;
 };
 
-const nums = [3, 2, 2, 3, 4, 4, 4];
-const val = 4;
+const nums = [3, 2, 2, 3];
+const val = 3;
 const result = removeElement(nums, val);
 console.log(result); // Output: 2
