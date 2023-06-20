@@ -15,45 +15,16 @@ Explanation: The score is max(nums) - min(nums) = 1 - 1 = 0.
 */
 
 {
-  const minimumScore = (nums, k) => {
-    let minimum = Infinity;
-    let maximum = -Infinity;
+  const smallestRangeI = (nums, k) => {
+    let minNum = Math.min(...nums);
+    let maxNum = Math.max(...nums);
 
-    // Find the minimum and maximum values
-    for (let i = 0; i < nums.length; i++) {
-      minimum = Math.min(minimum, nums[i]);
-      maximum = Math.max(maximum, nums[i]);
-    }
+    let minScore = Math.max(0, maxNum - minNum - 2 * k);
+    return minScore;
+  }
 
-    // If the difference is already within 2k, return 0
-    if (maximum - minimum <= 2 * k) {
-      return 0;
-    }
-
-    // Calculate the middle value
-    const middle = Math.ceil((minimum + maximum) / 2);
-
-    // Adjust the elements in the array
-    for (let i = 0; i < nums.length; i++) {
-      if (nums[i] < middle) {
-        nums[i] = minimum;
-      } else {
-        nums[i] = maximum;
-      }
-    }
-
-    // Recalculate the new minimum and maximum values
-    minimum = Infinity;
-    maximum = -Infinity;
-    for (let i = 0; i < nums.length; i++) {
-      minimum = Math.min(minimum, nums[i]);
-      maximum = Math.max(maximum, nums[i]);
-    }
-
-    return maximum - minimum;
-  };
-
-  const nums = [1];
-  const k = 0;
-  console.log(minimumScore(nums, k));
+  let nums = [1];
+  let k = 0;
+  let result = smallestRangeI(nums, k);
+  console.log(result); // Output: 0
 }
