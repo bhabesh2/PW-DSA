@@ -31,6 +31,6 @@ const diStringMatch = (s) => {
   return result;
 };
 
-const arr = [0, 4, 1, 3, 2];
+const str = 'IDID';
 
-console.log(diStringMatch(arr));
+console.log(diStringMatch(str));
