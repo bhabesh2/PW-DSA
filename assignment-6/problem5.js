@@ -16,17 +16,21 @@ Explanation:
 We can rearrange nums1 to become [3,5,4,2]. The product sum of [3,5,4,2] and [4,2,2,5] is 3*4 + 5*2 + 4*2 + 2*5 = 40.
 */
 
-const minProductSum = (arr1, arr2) => {
-  let sum = 0;
-
-  for (let j = 0; j < arr1.length; j++) {
-    let product = arr1[j] * arr2[j];
-    sum += product;
-  }
-  return sum;
-};
-
-let arr1 = [1, 2, 3, 4];
-let arr2 = [5, 2, 3, 1];
-
-console.log(minProductSum(arr1, arr2)); // output = 22;
+const minProductSum = (nums1, nums2) => {
+    nums1.sort((a, b) => a - b);
+    nums2.sort((a, b) => b - a);
+  
+    let minProductSum = 0;
+    for (let i = 0; i < nums1.length; i++) {
+      minProductSum += nums1[i] * nums2[i];
+    }
+  
+    return minProductSum;
+  };
+  
+  let arr1 = [5, 3, 4, 2];
+  let arr2 = [4, 2, 2, 5];
+  
+  console.log(minProductSum(arr1, arr2));
+  
+  
